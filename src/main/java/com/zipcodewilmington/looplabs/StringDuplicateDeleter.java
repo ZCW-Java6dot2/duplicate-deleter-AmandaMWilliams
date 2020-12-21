@@ -52,14 +52,14 @@ public final class StringDuplicateDeleter extends DuplicateDeleter<String> {
     @Override
     public String[] removeDuplicatesExactly(int exactNumberOfDuplications) {
 
-        int indexToDelete = 0;
+        int numberOfIndexesToDelete = 0;
         Integer[] duplicates = countOccurrences();
         for (Integer duplicate : duplicates) {
             if (duplicate == exactNumberOfDuplications) {
-                indexToDelete++;
+                numberOfIndexesToDelete++;
             }
         }
-        String[] result = new String[array.length-indexToDelete];
+        String[] result = new String[array.length-numberOfIndexesToDelete];
         int j=0;
         for (int i=0; i < duplicates.length; i++){
             if (duplicates[i] != exactNumberOfDuplications){
